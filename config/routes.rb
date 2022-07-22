@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  root 'products#index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'home#index'
 
-  get '*path', to: 'products#index', via: :all
+  namespace 'api' do
+    resources :products, only: [:create, :index] do
+      post :search, on: :collection
+    end
+  end
+
+  get '*path', to: 'home#index', via: :all
 end

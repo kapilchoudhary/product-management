@@ -1,25 +1,57 @@
-# README
+# Product Management Tool (Rails/JS)
 
-Mentioned below are the requirements and steps to setup the project - 
+- Mentioned below are the requirements and steps to setup the project - 
 
+* The Ruby version on the system needs to be at least 3.0.1.
 
-The Ruby version on the system needs to be at least 3.0.1.
+* The Rails version on the system needs to be at least version 6.
 
+* After cloning the project, 'bundle install' command must be run in the project directory to install all the dependencies(gems) required.
 
-Postgresql needs to be configured on the system, with username and password.
+### Set up Postgres
 
+* Postgresql needs to be configured on the system, with username and password.
 
-The Rails version on the system needs to be at least version 6.
+* Run the following commands (inside the root directory of the project) in order to setup database for project in Postgres.
 
+1. To create the database on your local system run command - 
 
-After cloning the project, 'bundle install' command must be run in the project directory to install all the dependencies(gems) required.
+```
+rails db:create
+```
 
+2. After that, to run migrations use the following command -
 
-Run the following commands (inside the root directory of the project) in order to setup database for project in Postgres.
+```
+rails db:migrate
+```
 
-Step 1: To create the database on your local system run 'rake db:create' command.
-Step 2: After that, run migrations using 'rake db:migrate' command.
+### Set up app and start rails server
 
-Run 'yarn install'
+1. Run yarn
 
-To run the server use 'rails s' command. To run server on a specific port use 'rails s -p {port number}', e.g: rails s -p 8080. Default port for use is 8080
+```
+yarn install
+```
+
+2. To run the server use the following command.
+
+```
+rails server
+```
+
+3. To run the rspecs run rspec/test cases.
+
+```
+bundle exec rspec
+```
+
+4. To run the 'rails console
+
+```
+rails c
+```
+
+### DEPLOYMENT - 
+
+* Heroku url - https://infinite-chamber-08260.herokuapp.com/

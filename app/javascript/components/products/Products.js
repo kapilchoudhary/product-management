@@ -21,7 +21,6 @@ export default function Products(){
 
     axios.post('/api/products/search', searchParams)
     .then(response => {
-      console.log(response)
       getProducts(response.data)
     });
   }
@@ -37,7 +36,9 @@ export default function Products(){
         />
         <button type="submit" onClick={searchProduct}>Submit</button>
       </div>
-
+      <a href="/new">
+        New
+      </a>
       <div>
         <h1>
           {products.length > 0 ? products.map((product, index) =>
@@ -45,7 +46,7 @@ export default function Products(){
               <p>Name: {product.name}</p>
               <p>Upc: {product.upc}</p>
               <p>Available_on: {new Date(product.available_on).toLocaleDateString() }</p>
-              <p>Properties: {product.properties.map(property => 
+              <p>{product.properties.length > 0 && "Properties:"} {product.properties.map(property => 
                 <p>{property.name}: {property.value}</p>
                 )}
               </p>

@@ -39,7 +39,8 @@ export default function Products(){
         </label>
         <button type="submit" onClick={searchProduct}>Submit</button>
       </div>
-      <a href="/new">
+      <br />
+      <a href="/new" class="btn btn-primary">
         New
       </a>
       <div>

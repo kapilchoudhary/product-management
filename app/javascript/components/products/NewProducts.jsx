@@ -86,81 +86,85 @@ export default function NewProducts() {
   return (
     <>
       <NotificationContainer/>
-      <div className="wrapper">
-        <form onSubmit={handleSubmit}>
-          <h2><b>Products</b></h2>
-         <fieldset>
-            <label>
-               <p>Name</p>
-               <input
-                  type="text"
-                  name="name"
-                  value={inputs.name || ""}
+      
+      <div class="section-1-container section-container">
+        <div class="container">
+          <form onSubmit={handleSubmit}>
+            <h2><b>Products</b></h2>
+           <fieldset>
+              <label>
+                 <p>Name</p>
+                 <input
+                    type="text"
+                    name="name"
+                    value={inputs.name || ""}
+                    onChange={handleChange}
+                  />
+                  <div className="errorMsg">{errors?.errors?.name}</div>
+              </label>
+            </fieldset>
+            <fieldset>
+              <label>
+                <p>UPC</p>
+                <input 
+                  type="text" 
+                  name="upc" 
+                  value={inputs.upc || ""} 
                   onChange={handleChange}
                 />
-                <div className="errorMsg">{errors?.errors?.name}</div>
-            </label>
-          </fieldset>
-          <fieldset>
-            <label>
-              <p>UPC</p>
-              <input 
-                type="text" 
-                name="upc" 
-                value={inputs.upc || ""} 
-                onChange={handleChange}
-              />
-              <div className="errorMsg">{errors?.errors?.upc}</div>
-            </label>
-          </fieldset>
-          <fieldset>
-            <label>
-              <p>Available on</p>
-              <input 
-                type="date" 
-                name="available_on" 
-                value={inputs.available_on || ""} 
-                onChange={handleChange}
-              />
-              <div className="errorMsg">{errors?.errors?.available_on}</div>
-            </label>
-          </fieldset>
+                <div className="errorMsg">{errors?.errors?.upc}</div>
+              </label>
+            </fieldset>
+            <fieldset>
+              <label>
+                <p>Available on</p>
+                <input 
+                  type="date" 
+                  name="available_on" 
+                  value={inputs.available_on || ""} 
+                  onChange={handleChange}
+                />
+                <div className="errorMsg">{errors?.errors?.available_on}</div>
+              </label>
+            </fieldset>
+            <br />
+            <h3><b>Properties</b></h3>
+            {inputList.map((input, i) => {
+              return (
+                <div key={i}>
+                  <fieldset>
+                    <label>Property Name:</label>
+                    <input
+                      name="name"
+                      value={input.name}
+                      onChange={e => handleInputChange(e, i)}
+                    />
+                    <div className="errorMsg">{errors?.errors?.property_name}</div>
+                    <br />
+                    <br />
+                    <label>Property Value:</label>
+                    <input
+                      name="value"
+                      value={input.value}
+                      onChange={e => handleInputChange(e, i)}
+                    />
+                    <div>
+                      {inputList.length - 1 === i && <button onClick={handleAddClick}>Add More Properties</button>}
+                    </div>
+                  </fieldset>
+                </div>
+              );
+            })}
+            <br />
+            <button type="submit" onClick={(e) => createProduct(e)}>Submit</button>
+          </form>
           <br />
-          <h3><b>Properties</b></h3>
-          {inputList.map((input, i) => {
-            return (
-              <div key={i}>
-                <fieldset>
-                  <label>Property Name:</label>
-                  <input
-                    name="name"
-                    value={input.name}
-                    onChange={e => handleInputChange(e, i)}
-                  />
-                  <div className="errorMsg">{errors?.errors?.property_name}</div>
-                  <br />
-                  <br />
-                  <label>Property Value:</label>
-                  <input
-                    name="value"
-                    value={input.value}
-                    onChange={e => handleInputChange(e, i)}
-                  />
-                  <div>
-                    {inputList.length - 1 === i && <button onClick={handleAddClick}>Add More Properties</button>}
-                  </div>
-                </fieldset>
-              </div>
-            );
-          })}
-          <br />
-          <button type="submit" onClick={(e) => createProduct(e)}>Submit</button>
-        </form>
-      </div >
 
-      <a href="/">
-        Products
-      </a>
+          <a href="/" class="btn btn-primary">
+            Products
+          </a>
+        </div>
+      </div >
     </>
   );
 }

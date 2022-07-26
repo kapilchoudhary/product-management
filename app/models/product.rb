@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  has_many :properties
+  has_many :properties, dependent: :destroy
 
   validates :name, length: { maximum: 1024 }, uniqueness: true
   validates :upc, numericality: { only_integer: true }, uniqueness: true

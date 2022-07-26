@@ -7,11 +7,12 @@ class Api::ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-
-    property_params.each do |params|
-      @product.properties.create(params)
+    if @product.save
+      add_properties
+      render json: { status: true, message: 'Product created successfully' }
+    else
+      render json: { status: false, message: @product.errors }
     end
-    render json: {status: true, message: 'Product created successfully'}
   end
 
   def search
@@ -20,6 +21,12 @@ class Api::ProductsController < ApplicationController
   end
 
   private
+
+  def add_properties
+    property_params.each do |params|
+      @product.properties.create(params)
+    end
+  end
 
   def product_params
     params.require(:product).permit(

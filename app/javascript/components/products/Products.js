@@ -28,12 +28,15 @@ export default function Products(){
   return( 
     <>
       <div className="wrapper">
-        <input 
-          type="text" 
-          placeholder="Search name" 
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+        <label>
+          <p><b>Search</b></p>
+          <input 
+            type="text" 
+            placeholder="Search name" 
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </label>
         <button type="submit" onClick={searchProduct}>Submit</button>
       </div>
       <a href="/new">

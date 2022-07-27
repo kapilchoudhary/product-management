@@ -55,3 +55,9 @@ rails c
 ### DEPLOYMENT - 
 
 * Heroku url - https://infinite-chamber-08260.herokuapp.com/
+
+* Note:- The bootstrap changes are not working on production environment. I can fix the issue but need some time. You can check the view of the pages given in the screenshot
+
+    https://infinite-chamber-08260.herokuapp.com/product_create_page.png
+
+    https://infinite-chamber-08260.herokuapp.com/product_list_page.png

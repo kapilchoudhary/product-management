@@ -44,20 +44,25 @@ export default function Products(){
         New
       </a>
       <div>
-        <h2>
-          {products.length > 0 ? products.map((product, index) =>
-            <div key={index}>
-              <p>Name: {product.name}</p>
-              <p>Upc: {product.upc}</p>
-              <p>Available_on: {new Date(product.available_on).toLocaleDateString()}</p>
-              <p>{product.properties.length > 0 && "Properties:-"} {product.properties.map(property => 
-                <p>{property.name}: {property.value}</p>
-                )}
-              </p>
-            </div>
-          ) : 
-          <h2>No products found</h2>}
-        </h2>
+        <div className="section-1-container section-container">
+          <div className="container">
+            <h2>
+              {products.length > 0 ? products.map((product, index) =>
+                <div key={index}>
+                  <p>Name: {product.name}</p>
+                  <p>Upc: {product.upc}</p>
+                  <p>Available_on: {new Date(product.available_on).toLocaleDateString()}</p>
+                  <p>{product.properties.length > 0 && "Properties:-"} {product.properties.map(property => 
+                    <p>{property.name}: {property.value}</p>
+                    )}
+                  </p>
+                  <br />
+                </div>
+              ) : 
+              <h2>No products found</h2>}
+            </h2>
+          </div>
+        </div >
       </div>
     </>
   )

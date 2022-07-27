@@ -87,8 +87,8 @@ export default function NewProducts() {
     <>
       <NotificationContainer/>
       
-      <div class="section-1-container section-container">
-        <div class="container">
+      <div className="section-1-container section-container">
+        <div className="container">
           <form onSubmit={handleSubmit}>
             <h2><b>Products</b></h2>
            <fieldset>
@@ -160,7 +160,7 @@ export default function NewProducts() {
           </form>
           <br />
 
-          <a href="/" class="btn btn-primary">
+          <a href="/" className="btn btn-primary">
             Products
           </a>
         </div>
